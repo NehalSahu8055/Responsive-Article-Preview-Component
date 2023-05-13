@@ -12,6 +12,8 @@
   --clr-gb: hsl(212, 23%, 69%);
   --clr-lgb: hsl(210, 46%, 95%);
   --clr-da: hsl(219, 19%, 35%);
+  --clr-w:hsl(0, 0%, 100%);
+  --clr-shadow:hsla(0, 0%, 0%, 0.067);
 
   /* font-sizes */
 
@@ -84,7 +86,7 @@ body::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
 body {
-  min-height: 109vh;
+  min-height: 100vh;
   background-color: var(--clr-lgb);
   animation-name: opacity;
   animation-timing-function: ease-in-out;
@@ -92,6 +94,11 @@ body {
 }
 .container {
   max-width: 730px;
+  border-radius: 10px;
+ 
+}
+.container:hover{
+  box-shadow:10px 10px 30px 2px var(--clr-shadow);
 }
 .image {
   overflow: hidden;
@@ -123,7 +130,7 @@ body {
   border-radius: 0 10px 10px 0;
   gap: var(--gap, 12px);
   padding: 33px 40px;
-  background-color: white;
+  background-color: var(--clr-w);
 }
 .out-list {
   margin-top: 9px;
@@ -154,6 +161,7 @@ button{
   border-radius: 10px;
   gap: var(--gap, 17px);
   padding: 18px 0px 18px 40px;
+  box-shadow:10px 10px 30px 2px var(--clr-shadow);
   position: absolute;
   transform: translate(215px, -80px);
   transition: all 0.5s;
