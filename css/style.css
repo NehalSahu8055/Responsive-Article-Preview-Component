@@ -84,7 +84,7 @@ body::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
 body {
-  min-height: 100vh;
+  min-height: 109vh;
   background-color: var(--clr-lgb);
   animation-name: opacity;
   animation-timing-function: ease-in-out;
