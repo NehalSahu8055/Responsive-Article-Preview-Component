@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+/* ------------------- */
+/* Custom properties   */
+/* ------------------- */
+
+:root {
+  /* colors */
+  --clr-db: hsla(217, 19%, 35%, 1);
+  --clr-vdb: hsl(217, 19%, 35%);
+  --clr-ddb: hsl(214, 17%, 51%);
+  --clr-gb: hsl(212, 23%, 69%);
+  --clr-lgb: hsl(210, 46%, 95%);
+  --clr-da: hsl(219, 19%, 35%);
+
+  /* font-sizes */
+
+  --fs-large: 1.28rem;
+  --fs-medium: 0.9rem;
+  --fs-small: 0.83rem;
+
+  /* --fs-xsmall: 1rem; */
+
+  /* font-families */
+  --ff-rope: "Manrope", sans-serif;
+
+  /* font weights */
+  --fw-bold: 500;
+  --fw-bolder: 700;
+}
+
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.35s linear;
+  font-family: var(--ff-rope);
+  list-style: none;
+  text-rendering: optimizeSpeed;
+}
+
+/* make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+p,
+span {
+  display: inline;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  display: inline;
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------MAIN CODE----------------------------------------- */
+
+/* hide-scrollbar */
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+body {
+  min-height: 100vh;
+  background-color: var(--clr-lgb);
+  animation-name: opacity;
+  animation-timing-function: ease-in-out;
+  animation-duration:1s;
+}
+.container {
+  max-width: 730px;
+}
+.image {
+  overflow: hidden;
+  border-radius: 10px 0 0 10px;
+}
+.drawer {
+  object-fit: cover;
+  object-position: left;
+  width: 285px;
+  filter:grayscale(40%);
+}
+.avatar {
+  width: 41px;
+  height: 40px;
+  border-radius: 50%;
+}
+.drawer:hover{
+  transform: scale(1.05);
+  border-radius: 10px 0 0 10px;
+  filter:grayscale(0);
+  transition: transform 0.5s linear;
+}
+.container .about,
+.date {
+  color: var(--clr-ddb);
+}
+.content {
+  width: 61%;
+  border-radius: 0 10px 10px 0;
+  gap: var(--gap, 12px);
+  padding: 33px 40px;
+  background-color: white;
+}
+.out-list {
+  margin-top: 9px;
+}
+.in-list {
+  gap: var(--gap, 13px);
+}
+.name,
+.heading {
+  color: var(--clr-db);
+}
+.share {
+  padding: 9px;
+  border-radius: 12px;
+  background-color: var(--clr-lgb);
+}
+button{
+    background:none;
+    border:none;
+    border-radius:12px;
+    width: 32px;
+    height: 32px;
+}
+.share-box {
+  background-color: var(--clr-da);
+  /* width: 248px; */
+  /* height: 55px; */
+  border-radius: 10px;
+  gap: var(--gap, 17px);
+  padding: 18px 0px 18px 40px;
+  position: absolute;
+  transform: translate(215px, -80px);
+  transition: all 0.5s;
+}
+.share-txt {
+  color: var(--clr-gb);
+}
+.share-active {
+  position: relative;
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 15px solid var(--clr-da);
+  transform: translate(-110px, 35px);
+}
+.social-icons {
+  cursor: pointer;
+}
+.share:hover{
+    cursor:pointer;
+    background-color: var(--clr-gb);
+}
+.fb:hover,
+.twitter:hover,
+.pinterest:hover {
+  transform: scale(1.2);
+}
+
+
+/* animations */
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes opacity {
+  0%{ opacity: 0; }
+  100%{ opacity: 1; }
+  
+}
+
+/* mobile-version */
+@media only screen and (max-width: 550px) {
+  body{
+    padding: 15px;
+  }
+  .image, .drawer{
+    border-radius: 10px 10px 0 0;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .drawer,
+  .content {
+    width: 100%;
+  }
+  .drawer {
+    border-radius: 10px 10px 0 0;
+  }
+  .content {
+    border-radius: 0 0 10px 10px;
+  }
+  .share-box{
+    transform: translate(30px, -80px);
+  }
+  .share-active{
+    transform: none;
+  }
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+
+/* flex */
+.flex-row {
+  display: flex;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-c {
+  align-items: center;
+  justify-content: center;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex-jsb {
+  align-content: center;
+  justify-content: space-between;
+}
+.flex-jsa {
+  align-content: center;
+  justify-content: space-between;
+}
+
+/* grid */
+.grid {
+  display: grid;
+}
+.grid-c {
+  place-items: center;
+}
+/* block */
+.block {
+  display: block;
+}
+
+/* colors */
+
+/* typography */
+
+.ff-rope {
+  font-family: var(--ff-rope);
+}
+
+.letter-spacing-1 {
+  letter-spacing: 3px;
+}
+.line-height-2 {
+  line-height: 20px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fs-large {
+  font-size: var(--fs-large);
+}
+.fs-small {
+  font-size: var(--fs-small);
+}
+.fs-medium {
+  font-size: var(--fs-medium);
+}
+
+.fs-xsmall {
+  font-size: var(--fs-xsmall);
+}
+
+.fw-500 {
+  font-weight: var(--fw-bold);
+}
+.fw-700 {
+  font-weight: var(--fw-bolder);
+}
+
+.center {
+  margin: auto;
+}
+.t-center {
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
